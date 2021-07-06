@@ -28,6 +28,8 @@ public class Cliente extends Pessoa {
     private static final long serialVersionUID = 1L;
 
     private Double debito;
+    
+    
 
 	@NotNull(message = "Nascimento do Cliente deve ser preenchido")
     @JsonFormat(pattern = "yyyy-MM-dd")
@@ -42,6 +44,7 @@ public class Cliente extends Pessoa {
     public Cliente(Integer id, String nome, String cpf, String rua, Integer numero,
             Bairro bairro, Double debito, Date nascimento) {
 //        super(id, nome, cpf, rua, numero, bairro);
+    	super();
         this.debito = debito;
         this.nascimento = nascimento;
     }
