@@ -20,6 +20,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.loca.app.entity.Artista;
 import com.loca.app.services.ArtistaService;
+import com.loca.app.services.exceptions.ConstraintException;
 
 @RestController
 @RequestMapping(value = "/artistas")
@@ -46,74 +47,74 @@ public class ArtistaController {
      * artistaImagem: File
      */
     
-//    @RequestMapping(value = "/insertfile", method = RequestMethod.POST, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-//	public ResponseEntity<Artista> insertfile(@RequestParam("artista") String artista, @RequestParam("artistaImagem") MultipartFile artistaImagem) {
-//		Artista obj;
-//		try {
-//			obj = new ObjectMapper().readValue(artista, Artista.class);
-//			obj.setImagem(artistaImagem.getBytes());
-//			obj = service.insert(obj);
-//			return ResponseEntity.ok().body(obj);
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-//		return null;
-//	}
-//    
+    @RequestMapping(value = "/insertfile", method = RequestMethod.POST, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+	public ResponseEntity<Artista> insertfile(@RequestParam("artista") String artista, @RequestParam("artistaImagem") MultipartFile artistaImagem) {
+		Artista obj;
+		try {
+			obj = new ObjectMapper().readValue(artista, Artista.class);
+			obj.setImagem(artistaImagem.getBytes());
+			obj = service.insert(obj);
+			return ResponseEntity.ok().body(obj);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+    
     /* Este método insere um Artista esperando receber dois parâmetros no Request:
      * artista: objeto Artista no formato de String JSON
      * artistaImagem: File
      */
     
-//    @RequestMapping(value = "/updatefile/{id}", method = RequestMethod.PUT, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-//	public ResponseEntity<Artista> updatefile(String artista, @RequestParam("artistaImagem") MultipartFile artistaImagem) {
-//		Artista obj;
-//		try {
-//			obj = new ObjectMapper().readValue(artista, Artista.class);
-//			obj.setImagem(artistaImagem.getBytes());
-//			obj = service.update(obj);
-//			return ResponseEntity.ok().body(obj);
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-//		return null;
-//	}
+    @RequestMapping(value = "/updatefile/{id}", method = RequestMethod.PUT, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+	public ResponseEntity<Artista> updatefile(String artista, @RequestParam("artistaImagem") MultipartFile artistaImagem) {
+		Artista obj;
+		try {
+			obj = new ObjectMapper().readValue(artista, Artista.class);
+			obj.setImagem(artistaImagem.getBytes());
+			obj = service.update(obj);
+			return ResponseEntity.ok().body(obj);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 	
     /* Este método altera um Artista esperando receber dois parâmetros no Request:
      * artista: objeto Artista no formato de String JSON
      * artistaImagem: File
      */
     
-//    @RequestMapping(method = RequestMethod.POST)
-//    public ResponseEntity<Artista> insert(@Valid @RequestBody Artista obj, BindingResult br) {
-//        if (br.hasErrors())
-//        	throw new ConstraintException(br.getAllErrors().get(0).getDefaultMessage());
-//        obj = service.insert(obj);
-//        return ResponseEntity.ok().body(obj);
-//    }
+    @RequestMapping(method = RequestMethod.POST)
+    public ResponseEntity<Artista> insert(@Valid @RequestBody Artista obj, BindingResult br) {
+        if (br.hasErrors())
+        	throw new ConstraintException(br.getAllErrors().get(0).getDefaultMessage());
+        obj = service.insert(obj);
+        return ResponseEntity.ok().body(obj);
+    }
     
-//    @RequestMapping(value = "{id}", method = RequestMethod.PUT)
-//    public ResponseEntity<Artista> update(@Valid @RequestBody Artista obj, BindingResult br) {
-//        if (br.hasErrors())
-//        	throw new ConstraintException(br.getAllErrors().get(0).getDefaultMessage());
-//        obj = service.update(obj);
-//        return ResponseEntity.ok().body(obj);
-//    }
+    @RequestMapping(value = "{id}", method = RequestMethod.PUT)
+    public ResponseEntity<Artista> update(@Valid @RequestBody Artista obj, BindingResult br) {
+        if (br.hasErrors())
+        	throw new ConstraintException(br.getAllErrors().get(0).getDefaultMessage());
+        obj = service.update(obj);
+        return ResponseEntity.ok().body(obj);
+    }
     
 
-//	@RequestMapping(value = "/{id}", method = RequestMethod.PUT, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-//	public ResponseEntity<Artista> update(String artista, @RequestParam("artistaImagem") MultipartFile artistaImagem) {
-//		Artista obj;
-//		try {
-//			obj = new ObjectMapper().readValue(artista, Artista.class);
-//			obj.setImagem(artistaImagem.getBytes());
-//			obj = service.update(obj);
-//			return ResponseEntity.ok().body(obj);
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-//		return null;
-//	}
+	@RequestMapping(value = "/{id}", method = RequestMethod.PUT, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+	public ResponseEntity<Artista> update(String artista, @RequestParam("artistaImagem") MultipartFile artistaImagem) {
+		Artista obj;
+		try {
+			obj = new ObjectMapper().readValue(artista, Artista.class);
+			obj.setImagem(artistaImagem.getBytes());
+			obj = service.update(obj);
+			return ResponseEntity.ok().body(obj);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<Void> delete(@PathVariable Integer id) {

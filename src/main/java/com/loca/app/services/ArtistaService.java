@@ -31,23 +31,23 @@ public class ArtistaService {
         return repository.findAll();
     }
 
-//    public Artista insert(final Artista obj) {
-//    	obj.setId(null);
-//        try {
-//        	return repository.save(obj);
-//        } catch (DataIntegrityViolationException e) {
-//            throw new DataIntegrityException("Campo(s) obrigatório(s) do Artista não foi(foram) preenchido(s)");
-//        }
-//    }
-//
-//    public Artista update(final Artista obj) {
-//    	findById(obj.getId());
-//        try {
-//        	return repository.save(obj);
-//        } catch (DataIntegrityViolationException e) {
-//            throw new DataIntegrityException("Campo(s) obrigatório(s) do Artista não foi(foram) preenchido(s)");
-//        }
-//    }
+    public Artista insert(final Artista obj) {
+    	obj.setId(null);
+        try {
+        	return repository.save(obj);
+        } catch (DataIntegrityViolationException e) {
+            throw new DataIntegrityException("Campo(s) obrigatório(s) do Artista não foi(foram) preenchido(s)");
+        }
+    }
+
+    public Artista update(final Artista obj) {
+    	findById(obj.getId());
+        try {
+        	return repository.save(obj);
+        } catch (DataIntegrityViolationException e) {
+            throw new DataIntegrityException("Campo(s) obrigatório(s) do Artista não foi(foram) preenchido(s)");
+        }
+    }
 
     public void delete(final Integer id) {
         findById(id);

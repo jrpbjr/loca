@@ -9,23 +9,23 @@ import javax.validation.constraints.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode(of = {"id"})
+@EqualsAndHashCode(of = { "id" })
 public class UF implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    
-    @Column(length = 2)
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+
+	@Column(length = 2)
 	@NotBlank(message = "Sigla da UF deve ser preenchida")
 	@Size(min = 2, max = 2, message = "Sigla da UF deve ter 2 letras")
-    private String sigla;
+	private String sigla;
 
-    @Column(length = 50)
+	@Column(length = 50)
 	@NotBlank(message = "Nome da UF deve ser preenchida")
 	@Size(min = 2, max = 50, message = "Nome da UF deve ter entre 2 e 50 letras")
-    private String nome;
+	private String nome;
 
 }

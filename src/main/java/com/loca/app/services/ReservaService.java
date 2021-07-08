@@ -40,26 +40,26 @@ public class ReservaService {
         return repository.findByFitaAndStatus(idFita, status);
     }
 
-//    public Reserva insert(Reserva obj) {
-//        try {
-//        	if(verificarRegrasDeNegocio(obj)) {
-//	        	obj.setId(null);
-//	        	return repository.save(obj);
-//        	}
-//        } catch (DataIntegrityViolationException e) {
-//            throw new DataIntegrityException("Campo(s) obrigatório(s) da Reserva não foi(foram) preenchido(s): Cliente ou Fita");
-//        }
-//        return null;
-//    }
+    public Reserva insert(Reserva obj) {
+        try {
+        	if(verificarRegrasDeNegocio(obj)) {
+	        	obj.setId(null);
+	        	return repository.save(obj);
+        	}
+        } catch (DataIntegrityViolationException e) {
+            throw new DataIntegrityException("Campo(s) obrigatório(s) da Reserva não foi(foram) preenchido(s): Cliente ou Fita");
+        }
+        return null;
+    }
 
-//    public Reserva update(Reserva obj) {
-//        findById(obj.getId());
-//        try {
-//        	return repository.save(obj);
-//        } catch (DataIntegrityViolationException e) {
-//            throw new DataIntegrityException("Campo(s) obrigatório(s) da Reserva não foi(foram) preenchido(s): Cliente ou Fita");
-//        }
-//    }
+    public Reserva update(Reserva obj) {
+        findById(obj.getId());
+        try {
+        	return repository.save(obj);
+        } catch (DataIntegrityViolationException e) {
+            throw new DataIntegrityException("Campo(s) obrigatório(s) da Reserva não foi(foram) preenchido(s): Cliente ou Fita");
+        }
+    }
 
     public void delete(Integer id) {
         findById(id);
@@ -81,20 +81,20 @@ public class ReservaService {
     // Implementando as regras de negócio relacionadas ao processo de negócio Reserva
  	// Regra de Negócio 1: Cliente não pode ter multas não pagas
     
-// 	public boolean verificarRegrasDeNegocio(Reserva obj) {
-// 		
-// 		// Regra de Negócio 1: Cliente não pode ter multas não pagas
-// 		Collection<Cliente> devedores = clienteRepository.findDevedores();
-// 		boolean clienteDevedor = false;
-// 		for (Cliente devedor : devedores) {
-// 			if (devedor.getId() == obj.getCliente().getId()) {
-// 				clienteDevedor = true;
-// 			}
-// 		}
-// 		if (clienteDevedor) {
-// 			throw new BusinessRuleException("Este cliente deve multas anteriores!");
-// 		}
-// 		return true;
-// 	}
+ 	public boolean verificarRegrasDeNegocio(Reserva obj) {
+ 		
+ 		// Regra de Negócio 1: Cliente não pode ter multas não pagas
+ 		Collection<Cliente> devedores = clienteRepository.findDevedores();
+ 		boolean clienteDevedor = false;
+ 		for (Cliente devedor : devedores) {
+ 			if (devedor.getId() == obj.getCliente().getId()) {
+ 				clienteDevedor = true;
+ 			}
+ 		}
+ 		if (clienteDevedor) {
+ 			throw new BusinessRuleException("Este cliente deve multas anteriores!");
+ 		}
+ 		return true;
+ 	}
 
 }

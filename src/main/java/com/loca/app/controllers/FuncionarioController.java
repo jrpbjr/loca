@@ -37,21 +37,21 @@ public class FuncionarioController {
         return ResponseEntity.ok().body(obj);
     }
 
-//    @RequestMapping(method = RequestMethod.POST)
-//    public ResponseEntity<Funcionario> insert(@Valid @RequestBody Funcionario obj, BindingResult br) {
-//        if (br.hasErrors())
-//        	throw new ConstraintException(br.getAllErrors().get(0).getDefaultMessage());
-//        obj = service.insert(obj);
-//        return ResponseEntity.ok().body(obj);
-//    }
-//    
-//    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-//    public ResponseEntity<Funcionario> update(@Valid @RequestBody Funcionario obj, BindingResult br) {
-//        if (br.hasErrors())
-//        	throw new ConstraintException(br.getAllErrors().get(0).getDefaultMessage());
-//        obj = service.update(obj);
-//        return ResponseEntity.ok().body(obj);
-//    }
+    @RequestMapping(method = RequestMethod.POST)
+    public ResponseEntity<Funcionario> insert(@Valid @RequestBody Funcionario obj, BindingResult br) {
+        if (br.hasErrors())
+        	throw new ConstraintException(br.getAllErrors().get(0).getDefaultMessage());
+        obj = service.insert(obj);
+        return ResponseEntity.ok().body(obj);
+    }
+    
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    public ResponseEntity<Funcionario> update(@Valid @RequestBody Funcionario obj, BindingResult br) {
+        if (br.hasErrors())
+        	throw new ConstraintException(br.getAllErrors().get(0).getDefaultMessage());
+        obj = service.update(obj);
+        return ResponseEntity.ok().body(obj);
+    }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<Void> delete(@PathVariable Integer id) {

@@ -24,11 +24,11 @@ public class BairroController {
     @Autowired
     private BairroService service;
 
-//    @RequestMapping(method = RequestMethod.GET)
-//    public ResponseEntity<Collection<Bairro>> findAll() {
-//        Collection<Bairro> collection = service.findAll();
-//        return ResponseEntity.ok().body(collection);
-//    }
+    @RequestMapping(method = RequestMethod.GET)
+    public ResponseEntity<Collection<Bairro>> findAll() {
+        Collection<Bairro> collection = service.findAll();
+        return ResponseEntity.ok().body(collection);
+    }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<Bairro> find(@PathVariable Integer id) {
@@ -36,21 +36,21 @@ public class BairroController {
         return ResponseEntity.ok().body(obj);
     }
 
-//    @RequestMapping(method = RequestMethod.POST)
-//    public ResponseEntity<Bairro> insert(@Valid @RequestBody Bairro obj, BindingResult br) {
-//        if (br.hasErrors())
-//        	throw new ConstraintException(br.getAllErrors().get(0).getDefaultMessage());
-//        obj = service.insert(obj);
-//        return ResponseEntity.ok().body(obj);
-//    }
+    @RequestMapping(method = RequestMethod.POST)
+    public ResponseEntity<Bairro> insert(@Valid @RequestBody Bairro obj, BindingResult br) {
+        if (br.hasErrors())
+        	throw new ConstraintException(br.getAllErrors().get(0).getDefaultMessage());
+        obj = service.insert(obj);
+        return ResponseEntity.ok().body(obj);
+    }
     
-//    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-//    public ResponseEntity<Bairro> update(@Valid @RequestBody Bairro obj, BindingResult br) {
-//        if (br.hasErrors())
-//        	throw new ConstraintException(br.getAllErrors().get(0).getDefaultMessage());
-//        obj = service.update(obj);
-//        return ResponseEntity.ok().body(obj);
-//    }
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    public ResponseEntity<Bairro> update(@Valid @RequestBody Bairro obj, BindingResult br) {
+        if (br.hasErrors())
+        	throw new ConstraintException(br.getAllErrors().get(0).getDefaultMessage());
+        obj = service.update(obj);
+        return ResponseEntity.ok().body(obj);
+    }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<Void> delete(@PathVariable Integer id) {

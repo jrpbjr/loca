@@ -31,23 +31,23 @@ public class FuncionarioService {
         return repository.findAll();
     }
 
-//    public Funcionario insert(Funcionario obj) {
-//    	obj.setId(null);
-//        try {
-//        	return repository.save(obj);
-//        } catch (DataIntegrityViolationException e) {
-//            throw new DataIntegrityException("Campo(s) obrigatório(s) do Funcionário não foi(foram) preenchido(s): Bairro");
-//        }
-//    }
-//
-//    public Funcionario update(Funcionario obj) {
-//        findById(obj.getId());
-//        try {
-//        	return repository.save(obj);
-//        } catch (DataIntegrityViolationException e) {
-//            throw new DataIntegrityException("Campo(s) obrigatório(s) do Funcionário não foi(foram) preenchido(s): Bairro");
-//        }
-//    }
+    public Funcionario insert(Funcionario obj) {
+    	obj.setId(null);
+        try {
+        	return repository.save(obj);
+        } catch (DataIntegrityViolationException e) {
+            throw new DataIntegrityException("Campo(s) obrigatório(s) do Funcionário não foi(foram) preenchido(s): Bairro");
+        }
+    }
+
+    public Funcionario update(Funcionario obj) {
+        findById(obj.getId());
+        try {
+        	return repository.save(obj);
+        } catch (DataIntegrityViolationException e) {
+            throw new DataIntegrityException("Campo(s) obrigatório(s) do Funcionário não foi(foram) preenchido(s): Bairro");
+        }
+    }
 
     public void delete(Integer id) {
         findById(id);

@@ -31,23 +31,23 @@ public class TipoDeFilmeService {
         return repository.findAll();
     }
 
-//    public TipoDeFilme insert(TipoDeFilme obj) {
-//        obj.setId(null);
-//        try {
-//        	return repository.save(obj);
-//        } catch (DataIntegrityViolationException e) {
-//            throw new DataIntegrityException("Campo(s) obrigatório(s) do Tipo de Filme não foi(foram) preenchido(s)");
-//        }
-//    }
-//
-//    public TipoDeFilme update(TipoDeFilme obj) {
-//        findById(obj.getId());
-//        try {
-//        	return repository.save(obj);
-//        } catch (DataIntegrityViolationException e) {
-//            throw new DataIntegrityException("Campo(s) obrigatório(s) do Tipo de Filme não foi(foram) preenchido(s)");
-//        }
-//    }
+    public TipoDeFilme insert(TipoDeFilme obj) {
+        obj.setId(null);
+        try {
+        	return repository.save(obj);
+        } catch (DataIntegrityViolationException e) {
+            throw new DataIntegrityException("Campo(s) obrigatório(s) do Tipo de Filme não foi(foram) preenchido(s)");
+        }
+    }
+
+    public TipoDeFilme update(TipoDeFilme obj) {
+        findById(obj.getId());
+        try {
+        	return repository.save(obj);
+        } catch (DataIntegrityViolationException e) {
+            throw new DataIntegrityException("Campo(s) obrigatório(s) do Tipo de Filme não foi(foram) preenchido(s)");
+        }
+    }
 
     public void delete(Integer id) {
         findById(id);

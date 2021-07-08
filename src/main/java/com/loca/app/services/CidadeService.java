@@ -28,23 +28,23 @@ public class CidadeService {
         }
     }
 
-//    public Cidade insert(Cidade obj) {
-//        obj.setId(null);
-//        try {
-//        	return repository.save(obj);
-//        } catch (DataIntegrityViolationException e) {
-//            throw new DataIntegrityException("Campo(s) obrigatório(s) da Cidade não foi(foram) preenchido(s): UF");
-//        }
-//    }
-//
-//    public Cidade update(Cidade obj) {
-//    	findById(obj.getId());
-//        try {
-//        	return repository.save(obj);
-//        } catch (DataIntegrityViolationException e) {
-//            throw new DataIntegrityException("Campo(s) obrigatório(s) da Cidade não foi(foram) preenchido(s): UF");
-//        }
-//    }
+    public Cidade insert(Cidade obj) {
+        obj.setId(null);
+        try {
+        	return repository.save(obj);
+        } catch (DataIntegrityViolationException e) {
+            throw new DataIntegrityException("Campo(s) obrigatório(s) da Cidade não foi(foram) preenchido(s): UF");
+        }
+    }
+
+    public Cidade update(Cidade obj) {
+    	findById(obj.getId());
+        try {
+        	return repository.save(obj);
+        } catch (DataIntegrityViolationException e) {
+            throw new DataIntegrityException("Campo(s) obrigatório(s) da Cidade não foi(foram) preenchido(s): UF");
+        }
+    }
 
     public void delete(Integer id) {
         findById(id);

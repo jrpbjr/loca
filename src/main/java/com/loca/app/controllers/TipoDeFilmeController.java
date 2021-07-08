@@ -36,21 +36,21 @@ public class TipoDeFilmeController {
         return ResponseEntity.ok().body(obj);
     }
 
-//    @RequestMapping(method = RequestMethod.POST)
-//    public ResponseEntity<TipoDeFilme> insert(@Valid @RequestBody TipoDeFilme obj, BindingResult br) {
-//        if (br.hasErrors())
-//        	throw new ConstraintException(br.getAllErrors().get(0).getDefaultMessage());
-//        obj = service.insert(obj);
-//        return ResponseEntity.ok().body(obj);
-//    }
-//    
-//    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-//    public ResponseEntity<TipoDeFilme> update(@Valid @RequestBody TipoDeFilme obj, BindingResult br) {
-//        if (br.hasErrors())
-//        	throw new ConstraintException(br.getAllErrors().get(0).getDefaultMessage());
-//        obj = service.update(obj);
-//        return ResponseEntity.ok().body(obj);
-//    }
+    @RequestMapping(method = RequestMethod.POST)
+    public ResponseEntity<TipoDeFilme> insert(@Valid @RequestBody TipoDeFilme obj, BindingResult br) {
+        if (br.hasErrors())
+        	throw new ConstraintException(br.getAllErrors().get(0).getDefaultMessage());
+        obj = service.insert(obj);
+        return ResponseEntity.ok().body(obj);
+    }
+    
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    public ResponseEntity<TipoDeFilme> update(@Valid @RequestBody TipoDeFilme obj, BindingResult br) {
+        if (br.hasErrors())
+        	throw new ConstraintException(br.getAllErrors().get(0).getDefaultMessage());
+        obj = service.update(obj);
+        return ResponseEntity.ok().body(obj);
+    }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<Void> delete(@PathVariable Integer id) {

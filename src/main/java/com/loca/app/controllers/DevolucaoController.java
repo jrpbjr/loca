@@ -30,11 +30,11 @@ public class DevolucaoController {
         return ResponseEntity.ok().body(collection);
     }
 
-//    @RequestMapping(value = "/{emprestimoId}/{fitaId}", method = RequestMethod.GET)
-//    public ResponseEntity<Devolucao> find(@PathVariable Integer emprestimoId, @PathVariable Integer fitaId) {
-//        Devolucao obj = service.findById(emprestimoId, fitaId);
-//        return ResponseEntity.ok().body(obj);
-//    }
+    @RequestMapping(value = "/{emprestimoId}/{fitaId}", method = RequestMethod.GET)
+    public ResponseEntity<Devolucao> find(@PathVariable Integer emprestimoId, @PathVariable Integer fitaId) {
+        Devolucao obj = service.findById(emprestimoId, fitaId);
+        return ResponseEntity.ok().body(obj);
+    }
 
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<Devolucao> insert(@Valid @RequestBody Devolucao obj, BindingResult br) {
@@ -44,19 +44,19 @@ public class DevolucaoController {
         return ResponseEntity.ok().body(obj);
     }
     
-//    @RequestMapping(value = "/{emprestimoId}/{fitaId}", method = RequestMethod.PUT)
-//    public ResponseEntity<Devolucao> update(@Valid @RequestBody Devolucao obj, BindingResult br) {
-//        if (br.hasErrors())
-//        	throw new ConstraintException(br.getAllErrors().get(0).getDefaultMessage());
-//        obj = service.update(obj);
-//        return ResponseEntity.ok().body(obj);
-//    }
+    @RequestMapping(value = "/{emprestimoId}/{fitaId}", method = RequestMethod.PUT)
+    public ResponseEntity<Devolucao> update(@Valid @RequestBody Devolucao obj, BindingResult br) {
+        if (br.hasErrors())
+        	throw new ConstraintException(br.getAllErrors().get(0).getDefaultMessage());
+        obj = service.update(obj);
+        return ResponseEntity.ok().body(obj);
+    }
 
-//    @RequestMapping(value = "/{emprestimoId}/{fitaId}", method = RequestMethod.DELETE)
-//    public ResponseEntity<Void> delete(@PathVariable Integer emprestimoId, @PathVariable Integer fitaId) {
-//        service.delete(emprestimoId, fitaId);
-//        return ResponseEntity.noContent().build();
-//    }
+    @RequestMapping(value = "/{emprestimoId}/{fitaId}", method = RequestMethod.DELETE)
+    public ResponseEntity<Void> delete(@PathVariable Integer emprestimoId, @PathVariable Integer fitaId) {
+        service.delete(emprestimoId, fitaId);
+        return ResponseEntity.noContent().build();
+    }
 
     @RequestMapping(value = "/findByClienteAndPeriodo/{idCliente}/{inicio}/{termino}", method = RequestMethod.GET)
     public ResponseEntity<Collection<Devolucao>> findByClienteAndPeriodo(@PathVariable Integer idCliente, @PathVariable String inicio, @PathVariable String termino) {

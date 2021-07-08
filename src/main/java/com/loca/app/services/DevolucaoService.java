@@ -31,26 +31,26 @@ public class DevolucaoService {
     @Autowired
     private ItemDeEmprestimoRepository itemDeEmprestimoRepository;
 
-//    public Devolucao findById(Integer idEmprestimo, Integer idFita) {
-//        Emprestimo emprestimo = new Emprestimo();
-//        Fita fita = new Fita();
-//        ItemDeEmprestimo itemDeEmprestimo = new ItemDeEmprestimo();
-//        DevolucaoPK id = new DevolucaoPK();
-//
-//        emprestimo = emprestimoRepository.findById(idEmprestimo).get();
-//        fita = fitaRepository.findById(idFita).get();
-//        itemDeEmprestimo.getId().setEmprestimo(emprestimo);
-//        itemDeEmprestimo.getId().setFita(fita);
-//        itemDeEmprestimo = itemDeEmprestimoRepository.findById(itemDeEmprestimo.getId()).get();
-//        id.setItemDeEmprestimo(itemDeEmprestimo);
-//
-//        try {
-//        	Devolucao obj = devolucaoRepository.findById(id).get();
-//        	return obj;
-//        } catch (NoSuchElementException e) {
-//        	throw new ObjectNotFoundException("Objeto não encontrado! Id: " + id + ", Tipo: " + Devolucao.class.getName());
-//        }
-//    }
+    public Devolucao findById(Integer idEmprestimo, Integer idFita) {
+        Emprestimo emprestimo = new Emprestimo();
+        Fita fita = new Fita();
+        ItemDeEmprestimo itemDeEmprestimo = new ItemDeEmprestimo();
+        DevolucaoPK id = new DevolucaoPK();
+
+        emprestimo = emprestimoRepository.findById(idEmprestimo).get();
+        fita = fitaRepository.findById(idFita).get();
+        itemDeEmprestimo.getId().setEmprestimo(emprestimo);
+        itemDeEmprestimo.getId().setFita(fita);
+        itemDeEmprestimo = itemDeEmprestimoRepository.findById(itemDeEmprestimo.getId()).get();
+        id.setItemDeEmprestimo(itemDeEmprestimo);
+
+        try {
+        	Devolucao obj = devolucaoRepository.findById(id).get();
+        	return obj;
+        } catch (NoSuchElementException e) {
+        	throw new ObjectNotFoundException("Objeto não encontrado! Id: " + id + ", Tipo: " + Devolucao.class.getName());
+        }
+    }
 
     public Devolucao findById(DevolucaoPK id) {
         Devolucao obj = devolucaoRepository.findById(id).get();
@@ -72,23 +72,23 @@ public class DevolucaoService {
         }
     }
 
-//    public Devolucao update(Devolucao obj) {
-//    	findById(obj.getId());
-//        try {
-//        	return devolucaoRepository.save(obj);
-//        } catch (DataIntegrityViolationException e) {
-//            throw new DataIntegrityException("Campo(s) obrigatório(s) da Devolução não foi(foram) preenchido(s): Item de Empréstimo (Empréstimo e/ou Fita)");
-//        }
-//    }
+    public Devolucao update(Devolucao obj) {
+    	findById(obj.getId());
+        try {
+        	return devolucaoRepository.save(obj);
+        } catch (DataIntegrityViolationException e) {
+            throw new DataIntegrityException("Campo(s) obrigatório(s) da Devolução não foi(foram) preenchido(s): Item de Empréstimo (Empréstimo e/ou Fita)");
+        }
+    }
 
-//    public void delete(Integer idEmprestimo, Integer idFita) {
-//        Devolucao devolucao = findById(idEmprestimo, idFita);
-//        try {
-//            devolucaoRepository.deleteById(devolucao.getId());
-//        } catch (DataIntegrityViolationException e) {
-//            throw new DataIntegrityException("Não é possível excluir esta Devolução!");
-//        }
-//    }
+    public void delete(Integer idEmprestimo, Integer idFita) {
+        Devolucao devolucao = findById(idEmprestimo, idFita);
+        try {
+            devolucaoRepository.deleteById(devolucao.getId());
+        } catch (DataIntegrityViolationException e) {
+            throw new DataIntegrityException("Não é possível excluir esta Devolução!");
+        }
+    }
 
     public Collection<Devolucao> findByClienteAndPeriodo(Integer idCliente, String inicio, String termino){
         return devolucaoRepository.findByClienteAndPeriodo(idCliente, inicio, termino);

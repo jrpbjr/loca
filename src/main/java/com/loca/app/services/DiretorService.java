@@ -31,23 +31,23 @@ public class DiretorService {
         return repository.findAll();
     }
 
-//    public Diretor insert(Diretor obj) {
-//    	obj.setId(null);
-//        try {
-//        	return repository.save(obj);
-//        } catch (DataIntegrityViolationException e) {
-//            throw new DataIntegrityException("Campo(s) obrigatório(s) do Diretor não foi(foram) preenchido(s)");
-//        }
-//    }
-//
-//    public Diretor update(Diretor obj) {
-//    	findById(obj.getId());
-//        try {
-//        	return repository.save(obj);
-//        } catch (DataIntegrityViolationException e) {
-//            throw new DataIntegrityException("Campo(s) obrigatório(s) do Diretor não foi(foram) preenchido(s)");
-//        }
-//    }
+    public Diretor insert(Diretor obj) {
+    	obj.setId(null);
+        try {
+        	return repository.save(obj);
+        } catch (DataIntegrityViolationException e) {
+            throw new DataIntegrityException("Campo(s) obrigatório(s) do Diretor não foi(foram) preenchido(s)");
+        }
+    }
+
+    public Diretor update(Diretor obj) {
+    	findById(obj.getId());
+        try {
+        	return repository.save(obj);
+        } catch (DataIntegrityViolationException e) {
+            throw new DataIntegrityException("Campo(s) obrigatório(s) do Diretor não foi(foram) preenchido(s)");
+        }
+    }
 
     public void delete(Integer id) {
         findById(id);

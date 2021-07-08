@@ -36,32 +36,32 @@ public class FilmeService {
         return repository.findAll();
     }
 
-//    public Filme insert(Filme obj) {
-//        try {
-//        	if(verificarRegrasDeNegocio(obj)) {
-//		    	obj.setId(null);
-//		        for (Participacao item : obj.getParticipacoes()) {
-//		            item.setFilme(obj);
-//		        }
-//		        return repository.save(obj);
-//	        }
-//        } catch (DataIntegrityViolationException e) {
-//			throw new DataIntegrityException("Campo(s) obrigatório(s) do Filme não foi(foram) preenchido(s): Tipo de Filme, Diretor ou Participação");
-//		}
-//        return null;
-//    }
-//
-//    public Filme update(Filme obj) {
-//        try {
-//        	findById(obj.getId());
-//	        for (Participacao item : obj.getParticipacoes()) {
-//	            item.setFilme(obj);
-//	        }
-//	        return repository.save(obj);
-//        } catch (DataIntegrityViolationException e) {
-//			throw new DataIntegrityException("Campo(s) obrigatório(s) do Filme não foi(foram) preenchido(s): Tipo de Filme, Diretor ou Participação");
-//		}
-//    }
+    public Filme insert(Filme obj) {
+        try {
+        	if(verificarRegrasDeNegocio(obj)) {
+		    	obj.setId(null);
+		        for (Participacao item : obj.getParticipacoes()) {
+		            item.setFilme(obj);
+		        }
+		        return repository.save(obj);
+	        }
+        } catch (DataIntegrityViolationException e) {
+			throw new DataIntegrityException("Campo(s) obrigatório(s) do Filme não foi(foram) preenchido(s): Tipo de Filme, Diretor ou Participação");
+		}
+        return null;
+    }
+
+    public Filme update(Filme obj) {
+        try {
+        	findById(obj.getId());
+	        for (Participacao item : obj.getParticipacoes()) {
+	            item.setFilme(obj);
+	        }
+	        return repository.save(obj);
+        } catch (DataIntegrityViolationException e) {
+			throw new DataIntegrityException("Campo(s) obrigatório(s) do Filme não foi(foram) preenchido(s): Tipo de Filme, Diretor ou Participação");
+		}
+    }
 
     public void delete(Integer id) {
         findById(id);
@@ -80,28 +80,28 @@ public class FilmeService {
  	// Regra de Negócio 1: Filme deve possuir, no mínimo, um diretor
     // Regra de Negócio 2: Filme deve possuir, no mínimo, uma participação de artista
 
-//    public boolean verificarRegrasDeNegocio(Filme obj) {
-// 		boolean minimoDiretores = false;
-// 		boolean minimoArtistas = false;
-// 		
-// 		// Regra de Negócio 1: Filme deve possuir, no mínimo, um diretor
-// 		if(obj.getDiretores() != null)
-// 			if(obj.getDiretores().size() >= 1)
-// 				minimoDiretores = true;
-// 			else 
-// 				throw new BusinessRuleException("O filme deve possuir, no mínimo, um diretor!");
-// 				
-// 		// Regra de Negócio 2: Filme deve possuir, no mínimo, uma participação de artista
-// 	 	if(obj.getParticipacoes() != null)
-// 	 		if(obj.getParticipacoes().size() >= 1)
-// 	 			minimoArtistas = true;
-// 	 		else
-// 	 			throw new BusinessRuleException("O filme deve possuir, no mínimo, uma participação de artista!");
-// 	 	
-// 		if(minimoDiretores && minimoArtistas)
-// 			return true;
-// 		else
-// 			return false;
-// 	}
+    public boolean verificarRegrasDeNegocio(Filme obj) {
+ 		boolean minimoDiretores = false;
+ 		boolean minimoArtistas = false;
+ 		
+ 		// Regra de Negócio 1: Filme deve possuir, no mínimo, um diretor
+ 		if(obj.getDiretores() != null)
+ 			if(obj.getDiretores().size() >= 1)
+ 				minimoDiretores = true;
+ 			else 
+ 				throw new BusinessRuleException("O filme deve possuir, no mínimo, um diretor!");
+ 				
+ 		// Regra de Negócio 2: Filme deve possuir, no mínimo, uma participação de artista
+ 	 	if(obj.getParticipacoes() != null)
+ 	 		if(obj.getParticipacoes().size() >= 1)
+ 	 			minimoArtistas = true;
+ 	 		else
+ 	 			throw new BusinessRuleException("O filme deve possuir, no mínimo, uma participação de artista!");
+ 	 	
+ 		if(minimoDiretores && minimoArtistas)
+ 			return true;
+ 		else
+ 			return false;
+ 	}
 
 }

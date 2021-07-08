@@ -33,26 +33,26 @@ public class MultaService {
     @Autowired
     private ItemDeEmprestimoRepository itemDeEmprestimoRepository;
 
-//    public Multa findById(Integer idEmprestimo, Integer idFita) {
-//        Emprestimo emprestimo = new Emprestimo();
-//        Fita fita = new Fita();
-//        ItemDeEmprestimo itemDeEmprestimo = new ItemDeEmprestimo();
-//        MultaPK id = new MultaPK();
-//
-//        emprestimo = emprestimoRepository.findById(idEmprestimo).get();
-//        fita = fitaRepository.findById(idFita).get();
-//        itemDeEmprestimo.getId().setEmprestimo(emprestimo);
-//        itemDeEmprestimo.getId().setFita(fita);
-//        itemDeEmprestimo = itemDeEmprestimoRepository.findById(itemDeEmprestimo.getId()).get();
-//        id.setItemDeEmprestimo(itemDeEmprestimo);
-//
-//        try {
-//        	Multa obj = multaRepository.findById(id).get();
-//        	return obj;
-//        } catch (NoSuchElementException e) {
-//        	throw new ObjectNotFoundException("Objeto não encontrado! Id: " + id + ", Tipo: " + Multa.class.getName());
-//        }
-//    }
+    public Multa findById(Integer idEmprestimo, Integer idFita) {
+        Emprestimo emprestimo = new Emprestimo();
+        Fita fita = new Fita();
+        ItemDeEmprestimo itemDeEmprestimo = new ItemDeEmprestimo();
+        MultaPK id = new MultaPK();
+
+        emprestimo = emprestimoRepository.findById(idEmprestimo).get();
+        fita = fitaRepository.findById(idFita).get();
+        itemDeEmprestimo.getId().setEmprestimo(emprestimo);
+        itemDeEmprestimo.getId().setFita(fita);
+        itemDeEmprestimo = itemDeEmprestimoRepository.findById(itemDeEmprestimo.getId()).get();
+        id.setItemDeEmprestimo(itemDeEmprestimo);
+
+        try {
+        	Multa obj = multaRepository.findById(id).get();
+        	return obj;
+        } catch (NoSuchElementException e) {
+        	throw new ObjectNotFoundException("Objeto não encontrado! Id: " + id + ", Tipo: " + Multa.class.getName());
+        }
+    }
 
     public Multa findById(MultaPK id) {
         Multa obj = multaRepository.findById(id).get();
@@ -74,22 +74,22 @@ public class MultaService {
         }
     }
 
-//    public Multa update(Multa obj) {
-//        findById(obj.getId());
-//        try {
-//        	return multaRepository.save(obj);
-//        } catch (DataIntegrityViolationException e) {
-//            throw new DataIntegrityException("Campo(s) obrigatório(s) da Multa não foi(foram) preenchido(s): Item de Empréstimo (Empréstimo e/ou Fita)");
-//        }
-//    }
-//
-//    public void delete(Integer idEmprestimo, Integer idFita) {
-//        Multa multa = findById(idEmprestimo, idFita);
-//        try {
-//            multaRepository.deleteById(multa.getId());
-//        } catch (DataIntegrityViolationException e) {
-//            throw new DataIntegrityException("Não é possível excluir esta Multa");
-//        }
-//    }
+    public Multa update(Multa obj) {
+        findById(obj.getId());
+        try {
+        	return multaRepository.save(obj);
+        } catch (DataIntegrityViolationException e) {
+            throw new DataIntegrityException("Campo(s) obrigatório(s) da Multa não foi(foram) preenchido(s): Item de Empréstimo (Empréstimo e/ou Fita)");
+        }
+    }
+
+    public void delete(Integer idEmprestimo, Integer idFita) {
+        Multa multa = findById(idEmprestimo, idFita);
+        try {
+            multaRepository.deleteById(multa.getId());
+        } catch (DataIntegrityViolationException e) {
+            throw new DataIntegrityException("Não é possível excluir esta Multa");
+        }
+    }
 
 }

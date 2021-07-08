@@ -37,21 +37,21 @@ public class EmprestimoController {
         return ResponseEntity.ok().body(obj);
     }
 
-//    @RequestMapping(method = RequestMethod.POST)
-//    public ResponseEntity<Emprestimo> insert(@Valid @RequestBody Emprestimo obj, BindingResult br) {
-//        if (br.hasErrors())
-//        	throw new ConstraintException(br.getAllErrors().get(0).getDefaultMessage());
-//        obj = service.insert(obj);
-//        return ResponseEntity.ok().body(obj);
-//    }
+    @RequestMapping(method = RequestMethod.POST)
+    public ResponseEntity<Emprestimo> insert(@Valid @RequestBody Emprestimo obj, BindingResult br) {
+        if (br.hasErrors())
+        	throw new ConstraintException(br.getAllErrors().get(0).getDefaultMessage());
+        obj = service.insert(obj);
+        return ResponseEntity.ok().body(obj);
+    }
     
-//    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-//    public ResponseEntity<Emprestimo> update(@Valid @RequestBody Emprestimo obj, BindingResult br) {
-//        if (br.hasErrors())
-//        	throw new ConstraintException(br.getAllErrors().get(0).getDefaultMessage());
-//    	obj = service.update(obj);
-//        return ResponseEntity.ok().body(obj);
-//    }
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    public ResponseEntity<Emprestimo> update(@Valid @RequestBody Emprestimo obj, BindingResult br) {
+        if (br.hasErrors())
+        	throw new ConstraintException(br.getAllErrors().get(0).getDefaultMessage());
+    	obj = service.update(obj);
+        return ResponseEntity.ok().body(obj);
+    }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<Void> delete(@PathVariable Integer id) {
@@ -65,13 +65,13 @@ public class EmprestimoController {
         return ResponseEntity.ok().body(collection);
     }
 
-//    @RequestMapping(value = "/findByCliente/{idCliente}", method = RequestMethod.GET)
-//    public ResponseEntity<Collection<Emprestimo>> findByCliente(@PathVariable Integer idCliente) {
-//        Cliente cliente = new Cliente();
-//        cliente.setId(idCliente);
-//        Collection<Emprestimo> collection = service.findByCliente(cliente);
-//        return ResponseEntity.ok().body(collection);
-//    }
+    @RequestMapping(value = "/findByCliente/{idCliente}", method = RequestMethod.GET)
+    public ResponseEntity<Collection<Emprestimo>> findByCliente(@PathVariable Integer idCliente) {
+        Cliente cliente = new Cliente();
+        cliente.setId(idCliente);
+        Collection<Emprestimo> collection = service.findByCliente(cliente);
+        return ResponseEntity.ok().body(collection);
+    }
 
     @RequestMapping(value = "/findByClienteAndPeriodo/{idCliente}/{inicio}/{termino}", method = RequestMethod.GET)
     public ResponseEntity<Collection<Emprestimo>> findByClienteAndPeriodo(@PathVariable Integer idCliente, @PathVariable String inicio, @PathVariable String termino) {

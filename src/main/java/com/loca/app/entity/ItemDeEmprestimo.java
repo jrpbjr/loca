@@ -38,31 +38,31 @@ public class ItemDeEmprestimo implements Serializable {
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Date entrega;
 
-//    @Builder
-//    public ItemDeEmprestimo(Emprestimo emprestimo, Fita fita, Double valor, Date entrega) {
-//        
-//    	    	
-//    	this.id.setEmprestimo(emprestimo);
-//        this.id.setFita(fita);
-//        this.valor = valor;
-//        this.entrega = entrega;
-//    }
-//
-//    @JsonIgnore
-//    public Emprestimo getEmprestimo() {
-//        return id.getEmprestimo();
-//    }
-//
-//    public void setEmprestimo(Emprestimo emprestimo) {
-//        id.setEmprestimo(emprestimo);
-//    }
-//
-//    public Fita getFita() {
-//        return id.getFita();
-//    }
-//
-//    public void setFita(Fita fita) {
-//        id.setFita(fita);
-//    }
+    @Builder
+    public ItemDeEmprestimo(Emprestimo emprestimo, Fita fita, Double valor, Date entrega) {
+        
+    	    	
+    	this.id.setEmprestimo(emprestimo);
+        this.id.setFita(fita);
+        this.valor = valor;
+        this.entrega = entrega;
+    }
+
+    @JsonIgnore
+    public Emprestimo getEmprestimo() {
+        return id.getEmprestimo();
+    }
+
+    public void setEmprestimo(Emprestimo emprestimo) {
+        id.setEmprestimo(emprestimo);
+    }
+
+    public Fita getFita() {
+        return id.getFita();
+    }
+
+    public void setFita(Fita fita) {
+        id.setFita(fita);
+    }
     
 }

@@ -31,23 +31,23 @@ public class GerenteService {
         return repository.findAll();
     }
 
-//    public Gerente insert(Gerente obj) {
-//        obj.setId(null);
-//        try {
-//        	return repository.save(obj);
-//        } catch (DataIntegrityViolationException e) {
-//            throw new DataIntegrityException("Campo(s) obrigatório(s) do Gerente não foi(foram) preenchido(s): Bairro");
-//        }
-//    }
-//
-//    public Gerente update(Gerente obj) {
-//        findById(obj.getId());
-//        try {
-//        	return repository.save(obj);
-//        } catch (DataIntegrityViolationException e) {
-//            throw new DataIntegrityException("Campo(s) obrigatório(s) do Gerente não foi(foram) preenchido(s): Bairro");
-//        }
-//    }
+    public Gerente insert(Gerente obj) {
+        obj.setId(null);
+        try {
+        	return repository.save(obj);
+        } catch (DataIntegrityViolationException e) {
+            throw new DataIntegrityException("Campo(s) obrigatório(s) do Gerente não foi(foram) preenchido(s): Bairro");
+        }
+    }
+
+    public Gerente update(Gerente obj) {
+        findById(obj.getId());
+        try {
+        	return repository.save(obj);
+        } catch (DataIntegrityViolationException e) {
+            throw new DataIntegrityException("Campo(s) obrigatório(s) do Gerente não foi(foram) preenchido(s): Bairro");
+        }
+    }
 
     public void delete(Integer id) {
         findById(id);

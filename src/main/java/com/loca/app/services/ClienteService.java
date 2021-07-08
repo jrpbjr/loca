@@ -29,24 +29,24 @@ public class ClienteService {
         return repository.findAll();
     }
 
-//    public Cliente insert(Cliente obj) {
-//    
-//    	obj.setId(null);
-//        try {
-//        	return repository.save(obj);
-//        } catch (DataIntegrityViolationException e) {
-//            throw new DataIntegrityException("Campo(s) obrigatório(s) do Cliente não foi(foram) preenchido(s): Bairro ou Telefone");
-//        }
-//    }
-//
-//    public Cliente update(Cliente obj) {
-//    	findById(obj.getId());
-//        try {
-//        	return repository.save(obj);
-//        } catch (DataIntegrityViolationException e) {
-//            throw new DataIntegrityException("Campo(s) obrigatório(s) do Cliente não foi(foram) preenchido(s): Bairro ou Telefone");
-//        }
-//    }
+    public Cliente insert(Cliente obj) {
+    
+    	obj.setId(null);
+        try {
+        	return repository.save(obj);
+        } catch (DataIntegrityViolationException e) {
+            throw new DataIntegrityException("Campo(s) obrigatório(s) do Cliente não foi(foram) preenchido(s): Bairro ou Telefone");
+        }
+    }
+
+    public Cliente update(Cliente obj) {
+    	findById(obj.getId());
+        try {
+        	return repository.save(obj);
+        } catch (DataIntegrityViolationException e) {
+            throw new DataIntegrityException("Campo(s) obrigatório(s) do Cliente não foi(foram) preenchido(s): Bairro ou Telefone");
+        }
+    }
 
     public void delete(Integer id) {
         findById(id);

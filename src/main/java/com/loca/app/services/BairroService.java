@@ -1,6 +1,6 @@
 package com.loca.app.services;
 
-
+import java.util.Collection;
 
 import java.util.NoSuchElementException;
 
@@ -28,27 +28,27 @@ public class BairroService {
         }
     }
 
-//    public Collection<Bairro> findAll() {
-//        return repository.findAll();
-//    }
-//
-//    public Bairro insert(Bairro obj) {
-//    	obj.setId(null);
-//        try {
-//        	return repository.save(obj);
-//        } catch (DataIntegrityViolationException e) {
-//            throw new DataIntegrityException("Campo(s) obrigatório(s) do Bairro não foi(foram) preenchido(s): Cidade");
-//        }
-//    }
-//
-//    public Bairro update(Bairro obj) {
-//    	findById(obj.getId());
-//        try {
-//        	return repository.save(obj);
-//        } catch (DataIntegrityViolationException e) {
-//            throw new DataIntegrityException("Campo(s) obrigatório(s) do Bairro não foi(foram) preenchido(s): Cidade");
-//        }
-//    }
+    public Collection<Bairro> findAll() {
+        return repository.findAll();
+    }
+
+    public Bairro insert(Bairro obj) {
+    	obj.setId(null);
+        try {
+        	return repository.save(obj);
+        } catch (DataIntegrityViolationException e) {
+            throw new DataIntegrityException("Campo(s) obrigatório(s) do Bairro não foi(foram) preenchido(s): Cidade");
+        }
+    }
+
+    public Bairro update(Bairro obj) {
+    	findById(obj.getId());
+        try {
+        	return repository.save(obj);
+        } catch (DataIntegrityViolationException e) {
+            throw new DataIntegrityException("Campo(s) obrigatório(s) do Bairro não foi(foram) preenchido(s): Cidade");
+        }
+    }
 
     public void delete(Integer id) {
         findById(id);

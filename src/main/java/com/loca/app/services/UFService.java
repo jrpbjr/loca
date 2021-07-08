@@ -31,23 +31,23 @@ public class UFService {
         return repository.findAll();
     }
 
-//    public UF insert(UF obj) {
-//    	obj.setId(null);
-//    	try {
-//        	return repository.save(obj);
-//        } catch (DataIntegrityViolationException e) {
-//            throw new DataIntegrityException("Campo(s) obrigatório(s) da UF não foi(foram) preenchido(s)");
-//        }
-//    }
-//
-//    public UF update(UF obj) {
-//    	findById(obj.getId());
-//    	try {
-//        	return repository.save(obj);
-//        } catch (DataIntegrityViolationException e) {
-//            throw new DataIntegrityException("Campo(s) obrigatório(s) da UF não foi(foram) preenchido(s)");
-//        }
-//    }
+    public UF insert(UF obj) {
+    	obj.setId(null);
+    	try {
+        	return repository.save(obj);
+        } catch (DataIntegrityViolationException e) {
+            throw new DataIntegrityException("Campo(s) obrigatório(s) da UF não foi(foram) preenchido(s)");
+        }
+    }
+
+    public UF update(UF obj) {
+    	findById(obj.getId());
+    	try {
+        	return repository.save(obj);
+        } catch (DataIntegrityViolationException e) {
+            throw new DataIntegrityException("Campo(s) obrigatório(s) da UF não foi(foram) preenchido(s)");
+        }
+    }
 
     public void delete(Integer id) {
         findById(id);

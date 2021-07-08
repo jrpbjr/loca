@@ -47,19 +47,19 @@ public class FilmeController {
      * artistaImagem: File
      */
 	
-//	@RequestMapping(value = "/insertfile", method = RequestMethod.POST, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-//	public ResponseEntity<Filme> insert(@RequestParam("filme") String filme, @RequestParam("filmeImagem") MultipartFile filmeImagem) {
-//		Filme obj;
-//		try {
-//			obj = new ObjectMapper().readValue(filme, Filme.class);
-//			obj.setImagem(filmeImagem.getBytes());
-//			obj = service.insert(obj);
-//			return ResponseEntity.ok().body(obj);
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-//		return null;
-//	}
+	@RequestMapping(value = "/insertfile", method = RequestMethod.POST, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+	public ResponseEntity<Filme> insert(@RequestParam("filme") String filme, @RequestParam("filmeImagem") MultipartFile filmeImagem) {
+		Filme obj;
+		try {
+			obj = new ObjectMapper().readValue(filme, Filme.class);
+			obj.setImagem(filmeImagem.getBytes());
+			obj = service.insert(obj);
+			return ResponseEntity.ok().body(obj);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 	
 
 	/* Este método altera um Filme esperando receber dois parâmetros no Request:
@@ -67,35 +67,35 @@ public class FilmeController {
      * artistaImagem: File
      */
 	
-//	@RequestMapping(value = "/updatefile/{id}", method = RequestMethod.PUT, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-//	public ResponseEntity<Filme> update(String filme, @RequestParam("filmeImagem") MultipartFile filmeImagem) {
-//		Filme obj;
-//		try {
-//			obj = new ObjectMapper().readValue(filme, Filme.class);
-//			obj.setImagem(filmeImagem.getBytes());
-//			obj = service.update(obj);
-//			return ResponseEntity.ok().body(obj);
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-//		return null;
-//	}
+	@RequestMapping(value = "/updatefile/{id}", method = RequestMethod.PUT, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+	public ResponseEntity<Filme> update(String filme, @RequestParam("filmeImagem") MultipartFile filmeImagem) {
+		Filme obj;
+		try {
+			obj = new ObjectMapper().readValue(filme, Filme.class);
+			obj.setImagem(filmeImagem.getBytes());
+			obj = service.update(obj);
+			return ResponseEntity.ok().body(obj);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 	
-//	@RequestMapping(method = RequestMethod.POST)
-//    public ResponseEntity<Filme> insert(@Valid @RequestBody Filme obj, BindingResult br) {
-//		if (br.hasErrors())
-//        	throw new ConstraintException(br.getAllErrors().get(0).getDefaultMessage());
-//        obj = service.insert(obj);
-//        return ResponseEntity.ok().body(obj);
-//    }
+	@RequestMapping(method = RequestMethod.POST)
+    public ResponseEntity<Filme> insert(@Valid @RequestBody Filme obj, BindingResult br) {
+		if (br.hasErrors())
+        	throw new ConstraintException(br.getAllErrors().get(0).getDefaultMessage());
+        obj = service.insert(obj);
+        return ResponseEntity.ok().body(obj);
+    }
     
-//    @RequestMapping(value = "{id}", method = RequestMethod.PUT)
-//    public ResponseEntity<Filme> update(@Valid @RequestBody Filme obj, BindingResult br) {
-//        if (br.hasErrors())
-//        	throw new ConstraintException(br.getAllErrors().get(0).getDefaultMessage());
-//        obj = service.update(obj);
-//        return ResponseEntity.ok().body(obj);
-//    }
+    @RequestMapping(value = "{id}", method = RequestMethod.PUT)
+    public ResponseEntity<Filme> update(@Valid @RequestBody Filme obj, BindingResult br) {
+        if (br.hasErrors())
+        	throw new ConstraintException(br.getAllErrors().get(0).getDefaultMessage());
+        obj = service.update(obj);
+        return ResponseEntity.ok().body(obj);
+    }
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<Void> delete(@PathVariable Integer id) {
@@ -103,18 +103,18 @@ public class FilmeController {
 		return ResponseEntity.noContent().build();
 	}
 
-//	@RequestMapping(value = "/findByTipoDeFilme/{idTipoDeFilme}", method = RequestMethod.GET)
-//	public ResponseEntity<Collection<Filme>> findByTipoDeFilme(@PathVariable Integer idTipoDeFilme) {
-//		TipoDeFilme tipoDeFilme = new TipoDeFilme();
-//		tipoDeFilme.setId(idTipoDeFilme);
-//		Collection<Filme> collection = service.findByTipoDeFilme(tipoDeFilme);
-//		return ResponseEntity.ok().body(collection);
-//	}
+	@RequestMapping(value = "/findByTipoDeFilme/{idTipoDeFilme}", method = RequestMethod.GET)
+	public ResponseEntity<Collection<Filme>> findByTipoDeFilme(@PathVariable Integer idTipoDeFilme) {
+		TipoDeFilme tipoDeFilme = new TipoDeFilme();
+		tipoDeFilme.setId(idTipoDeFilme);
+		Collection<Filme> collection = service.findByTipoDeFilme(tipoDeFilme);
+		return ResponseEntity.ok().body(collection);
+	}
 
-//	@RequestMapping(value = "/imagem/{id}", method = RequestMethod.GET)
-//	public ResponseEntity<byte[]> findImagem(@PathVariable Integer id) {
-//		Filme obj = service.findById(id);
-//		return ResponseEntity.ok().body(obj.getImagem());
-//	}
+	@RequestMapping(value = "/imagem/{id}", method = RequestMethod.GET)
+	public ResponseEntity<byte[]> findImagem(@PathVariable Integer id) {
+		Filme obj = service.findById(id);
+		return ResponseEntity.ok().body(obj.getImagem());
+	}
 
 }

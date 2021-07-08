@@ -41,24 +41,24 @@ public class Multa implements Serializable {
         this.pago = pago;
     }
 
-//    public Integer getEmprestimoId() { //Método criado para facilitar a visualização da chave primária desta devolução
-//        return id.getItemDeEmprestimo().getEmprestimo().getId();
-//    }
-//
-//    public Integer getFitaId() { //Método criado para facilitar a visualização da chave primária desta devolução
-//        return id.getItemDeEmprestimo().getFita().getId();
-//    }
-//    
-//    public void setEmprestimoId(Integer id) { //Método criado para facilitar a atribuição da chave primária desta devolução
-//    	Emprestimo emprestimo = new Emprestimo();
-//    	emprestimo.setId(id);
-//    	this.id.getItemDeEmprestimo().setEmprestimo(emprestimo);
-//    }
-//
-//    public void setFitaId(Integer id) { //Método criado para facilitar a atribuição da chave primária desta devolução
-//    	Fita fita = new Fita();
-//    	fita.setId(id);
-//    	this.id.getItemDeEmprestimo().setFita(fita);
-//    }
+    public Integer getEmprestimoId() { //Método criado para facilitar a visualização da chave primária desta devolução
+        return id.getItemDeEmprestimo().getEmprestimo().getId();
+    }
+
+    public Integer getFitaId() { //Método criado para facilitar a visualização da chave primária desta devolução
+        return id.getItemDeEmprestimo().getFita().getId();
+    }
+    
+    public void setEmprestimoId(Integer id) { //Método criado para facilitar a atribuição da chave primária desta devolução
+    	Emprestimo emprestimo = new Emprestimo();
+    	emprestimo.setId(id);
+    	this.id.getItemDeEmprestimo().setEmprestimo(emprestimo);
+    }
+
+    public void setFitaId(Integer id) { //Método criado para facilitar a atribuição da chave primária desta devolução
+    	Fita fita = new Fita();
+    	fita.setId(id);
+    	this.id.getItemDeEmprestimo().setFita(fita);
+    }
 
 }
