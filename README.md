@@ -55,3 +55,10 @@ O objetivo do sistema é agilizar o processo de empréstimo e garantir maior seg
 ```
 
 ## :computer: Instalação e execução <a name="-instalacao"/></a>
+
+0. Instale o gerenciador de dependências [Maven](https://maven.apache.org/download.cgi);
+1. Faça um clone desse repositório;
+2. Entre na pasta rodando `cd target`;
+3. Rode `mvn spring-boot:run` para iniciar o servidor de desenvolvimento;
+4. Abra `http://localhost:9090` para ver o projeto no navegador, verifique a porta configurada.
+
