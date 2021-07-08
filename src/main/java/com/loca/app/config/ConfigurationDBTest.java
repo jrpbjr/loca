@@ -20,10 +20,10 @@ public class ConfigurationDBTest {
 	@Autowired
 	private _DBService dbService;
 	
-	@Bean
-	public boolean instatiateDatabase() throws ParseException, IOException {
-		dbService.instantiateTestDatabase();
-		return true;
-	}
+//	@Bean
+//	public boolean instatiateDatabase() throws ParseException, IOException {
+//		dbService.instantiateTestDatabase();
+//		return true;
+//	}
 	
 }
