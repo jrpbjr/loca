@@ -34,13 +34,13 @@ public class Multa implements Serializable {
 
     private Boolean pago;
 
-//    @Builder
-//    public Multa(ItemDeEmprestimo itemDeEmprestimo, Double valor, Boolean pago) {
-//        this.id.setItemDeEmprestimo(itemDeEmprestimo);
-//        this.valor = valor;
-//        this.pago = pago;
-//    }
-//
+    @Builder
+    public Multa(ItemDeEmprestimo itemDeEmprestimo, Double valor, Boolean pago) {
+        this.id.setItemDeEmprestimo(itemDeEmprestimo);
+        this.valor = valor;
+        this.pago = pago;
+    }
+
 //    public Integer getEmprestimoId() { //Método criado para facilitar a visualização da chave primária desta devolução
 //        return id.getItemDeEmprestimo().getEmprestimo().getId();
 //    }

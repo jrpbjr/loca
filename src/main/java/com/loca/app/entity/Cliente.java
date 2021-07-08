@@ -19,34 +19,32 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Data 
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 public class Cliente extends Pessoa {
 
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    private Double debito;
-    
-    
+	private Double debito;
 
 	@NotNull(message = "Nascimento do Cliente deve ser preenchido")
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    private Date nascimento;
+	@JsonFormat(pattern = "yyyy-MM-dd")
+	private Date nascimento;
 
 	@NotNull(message = "O Cliente deve possuir pelo menos um Telefone")
-    @ElementCollection(fetch = FetchType.EAGER)
-	@CollectionTable(name="TELEFONE")
+	@ElementCollection(fetch = FetchType.EAGER)
+	@CollectionTable(name = "TELEFONE")
 	private Set<String> telefones = new HashSet<>();
 
-    @Builder
-    public Cliente(Integer id, String nome, String cpf, String rua, Integer numero,
-            Bairro bairro, Double debito, Date nascimento) {
-//        super(id, nome, cpf, rua, numero, bairro);
-    	super();
-        this.debito = debito;
-        this.nascimento = nascimento;
-    }
+	@Builder
+	public Cliente(Integer id, String nome, String cpf, String rua, Integer numero, Bairro bairro, Double debito,
+			Date nascimento) {
+		super(id, nome, cpf, rua, numero, bairro);
+
+		this.debito = debito;
+		this.nascimento = nascimento;
+	}
 
 }

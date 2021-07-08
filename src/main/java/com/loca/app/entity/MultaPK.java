@@ -13,16 +13,14 @@ import lombok.EqualsAndHashCode;
 //Classe criada para representar a chave primária composta do objeto Multa
 @Embeddable
 @Data
-@EqualsAndHashCode(of = {"itemDeEmprestimo"})
+@EqualsAndHashCode(of = { "itemDeEmprestimo" })
 public class MultaPK implements Serializable {
 
-  private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-  @OneToOne
-  @JoinColumns({
-      @JoinColumn(name = "FITA_ID", referencedColumnName = "FITA_ID"),
-      @JoinColumn(name = "EMPRESTIMO_ID", referencedColumnName = "EMPRESTIMO_ID")
-  })
-  private ItemDeEmprestimo itemDeEmprestimo = new ItemDeEmprestimo();
+	@OneToOne
+	@JoinColumns({ @JoinColumn(name = "FITA_ID", referencedColumnName = "FITA_ID"),
+			@JoinColumn(name = "EMPRESTIMO_ID", referencedColumnName = "EMPRESTIMO_ID") })
+	private ItemDeEmprestimo itemDeEmprestimo = new ItemDeEmprestimo();
 
 }

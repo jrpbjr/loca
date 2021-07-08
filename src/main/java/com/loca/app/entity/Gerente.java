@@ -32,8 +32,7 @@ public class Gerente extends Pessoa {
 
     @Builder
     public Gerente(Integer id, String nome, String cpf, String rua, Integer numero, Bairro bairro, String login, String senha) {
-//        super(id, nome, cpf, rua, numero, bairro);
-    	super();
+        super(id, nome, cpf, rua, numero, bairro);    
         this.login = login;
         this.senha = senha;
     }
