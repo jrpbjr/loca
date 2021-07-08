@@ -8,7 +8,7 @@
 
 <p align="center">
   <a href="#-sobre">Sobre o projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-instalacao">Instalação e execução</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; 
+  <a href="#-instalacao">Instalação e execução</a>&nbsp;&nbsp;&nbsp;
 </p>
 
 ## :page_with_curl: Sobre o projeto <a name="-sobre"/></a>
