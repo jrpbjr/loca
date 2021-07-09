@@ -1,5 +1,11 @@
 # locadora
 
+<h1 align="center">
+    <img alt="DIA" src="https://github.com/jrpbjr/loca/blob/main/assets/astah.jpeg" />
+</h1>
+
+
+
 <h3 align="center">
   Sistema de Controle da locadora - BackEnd - Spring Boot
 </h3>
